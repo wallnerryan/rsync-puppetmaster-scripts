@@ -1,0 +1,24 @@
+#
+#
+#
+
+On all puppetmasters this should be done
+
+#
+#
+#
+
+**ON NON CA MASTERS**
+
+cd ~/.ssh/
+ssh-keygen -t rsa
+scp id_rsa.pub <usr>@<puppetmasterCA>:/opt/
+
+**ON CA MASTER**
+
+cat /opt/<id_rsa.pub> >> ~/.ssh/authorized_keys
+
+
+DO THE SAME IN THE OPPOSITE DIRECTION
+THIS ENABLES modules/manifests to rsync
+WITH CRON
